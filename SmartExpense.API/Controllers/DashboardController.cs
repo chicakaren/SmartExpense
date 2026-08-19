@@ -29,4 +29,11 @@ public class DashboardController : ControllerBase
 
         return Ok(result);
     }
+    [HttpGet("cash-flow")]
+    public async Task<IActionResult> GetCashFlow()
+    {
+        var result = await _service.GetCashFlowAsync();
+
+        return Ok(result);
+    }
 }

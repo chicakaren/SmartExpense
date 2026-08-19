@@ -50,4 +50,25 @@ public class DashboardService
             .OrderByDescending(x => x.Total)
             .ToList();
     }
+
+    public async Task<List<object>> GetCashFlowAsync()
+    {
+        var expenses = await _repository.GetAllAsync();
+
+        return expenses
+            .GroupBy(x => new
+            {
+                x.Date.Year,
+                x.Date.Month
+            })
+            .OrderBy(x => x.Key.Year)
+            .ThenBy(x => x.Key.Month)
+            .Select(group => new
+            {
+                Month = $"{group.Key.Year}-{group.Key.Month:D2}",
+                Expenses = group.Sum(x => x.Amount)
+            })
+            .Cast<object>()
+            .ToList();
+    }
 }
