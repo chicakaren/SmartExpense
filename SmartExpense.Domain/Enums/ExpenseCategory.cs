@@ -2,12 +2,12 @@ namespace SmartExpense.Domain.Enums;
 
 public enum ExpenseCategory
 {
-    Food = 1,
-    Transportation = 2,
-    Housing = 3,
-    Entertainment = 4,
-    Health = 5,
-    Education = 6,
-    Shopping = 7,
-    Other = 8
+    Alimentacion = 1,
+    Transporte = 2,
+    Vivienda = 3,
+    Entretenimiento = 4,
+    Salud = 5,
+    Educacion = 6,
+    Compras = 7,
+    Otros = 8
 }
